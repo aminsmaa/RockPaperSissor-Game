@@ -1,0 +1,35 @@
+import random
+
+humanScore = 0
+computerScore = 0
+
+condition = True
+while (condition) and (humanScore!=2) and (computerScore!=2):
+    human = input('make your move: ').lower()
+    if human == 'exit':
+        condition=False 
+        break
+    randnum = random.randint(0,2)
+    movelist = ['rock','paper','sissor']
+    ai = movelist[randnum]
+    print(f"computer move: {ai}" )
+
+    if (human=='paper' and ai=='rock') or (human=='sissor' and ai=='paper') or (human=='rock' and ai=='sissor'):
+        print('YOU WIN')
+        humanScore+=1
+    elif (human=='paper' and ai=='sissor') or (human=='sissor' and ai=='rock') or (human=='rock' and ai=='paper'):
+        print('computer WIN')
+        computerScore+=1
+    elif(human=='paper' and ai=='paper') or (human=='sissor' and ai=='sissor') or (human=='rock' and ai=='rock'):
+        print('tie!')
+    else:
+        print('wrong input!')
+
+print(f"you: {humanScore}")
+print(f"computer: {computerScore}")
+if humanScore > computerScore :
+    print("YOU ARE THE WINNER")
+elif( humanScore < computerScore):
+    print("YOU LOOOOOOOSE")
+else:
+    print("ALL TIE!!!!!!!!!")
